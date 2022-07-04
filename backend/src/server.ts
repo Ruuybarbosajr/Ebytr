@@ -1,0 +1,8 @@
+import app from './api/app';
+import dotenv from 'dotenv';
+
+const PORT = process.env.PORT || 3001;
+
+app.listen(PORT, () => {
+    console.log(`app ruuning on ${PORT}`);
+});
