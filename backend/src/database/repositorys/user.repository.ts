@@ -8,5 +8,5 @@ export default {
 
     async findByEmail(email: string): Promise<IUser[] | void[]> { return userModel.findByEmail(email); },
 
-    async create(newUser: IUser): Promise<IUser> { await userModel.create({...newUser}); return newUser; },
+    async create(newUser: IUser): Promise<IUser> { await userModel.create(newUser); return newUser; },
 };

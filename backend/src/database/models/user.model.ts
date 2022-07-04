@@ -3,7 +3,7 @@ import connection from './connection';
 
 export default {
     async findAll() {
-        const query = 'SELECT * FROM Ebytr.users';
+        const query = 'SELECT * FROM Ebytr.Users';
         const [users] = await connection.execute(query);
         return users as IUser[];
     },

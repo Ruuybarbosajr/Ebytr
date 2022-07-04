@@ -13,11 +13,8 @@ export default {
 
     async create(newUser: IUser): Promise<IUser> {
         const find = await userRepository.findByEmail(newUser.email);
-
         if (!find.length) generateError('User already exists', 400);
-
         const user = await userRepository.create(newUser);
-
         return user;
     }
 };
