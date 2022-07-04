@@ -16,7 +16,18 @@ export default {
         const {id, firstName, lastName, email, admin, password } = req.body as IUser;
         try {
             const newUser = await userService.create({id, firstName, lastName, email, admin, password});
-            return res.status(201).json({user: newUser});
+            return res.status(201).json({ user: newUser });
+        } catch (error) {
+            next(error);
+        }
+    },
+
+    async findById(req: Request, res: Response, next: NextFunction): Promise<Response<IUser> | void> {
+        const { id } = req.params;
+        console.log(id);
+        try {
+            const user = await userService.findById(id);
+            return res.status(200).json({ user });
         } catch (error) {
             next(error);
         }
