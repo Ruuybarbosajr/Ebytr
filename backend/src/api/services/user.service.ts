@@ -1,6 +1,7 @@
 import userRepository from '../../database/repositorys/user.repository';
 import { IUser } from '../../interfaces/user.interface';
 import generateError from '../../utils/generate.error';
+import { v4 as uuidv4 } from 'uuid';
 
 export default {
     async getAll(): Promise<IUser[] | void[]> { return userRepository.getAll(); },
@@ -20,15 +21,16 @@ export default {
         };
     },
 
-    async create(newUser: IUser): Promise<Omit<IUser, 'password'>> {
-        const find = await userRepository.findByEmail(newUser.email);
-        
-        if (find.length) generateError('User already exists', 400);
-        const user = await userRepository.create(newUser);
+    async create(newUser: Omit<IUser, 'id'>): Promise<Omit<IUser, 'password'>> {
+        const [find] = await userRepository.findByEmail(newUser.email);
+
+        if (!find) generateError('User already exists', 400);
+        const user = await userRepository.create({ id: uuidv4(), ...newUser });
  
-        const { firstName, admin, email, lastName } = user as Omit<IUser, 'password'>;
+        const { id, firstName, admin, email, lastName } = user as Omit<IUser, 'password'>;
+        
         return {
-            id: newUser.id,
+            id,
             firstName,
             lastName,
             admin,
