@@ -4,7 +4,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const connection = mysql2.createPool({
-    host: '192.168.16.2',
+    host: 'localhost',
     user: 'root',
     password: 'password_ebytr',
     database: 'Ebytr',

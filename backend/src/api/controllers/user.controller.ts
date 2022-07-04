@@ -10,5 +10,15 @@ export default {
         } catch (error) {
             next(error);
         }
+    },
+
+    async create(req: Request, res: Response, next: NextFunction): Promise<Response<IUser> | void> {
+        const {id, firstName, lastName, email, admin, password } = req.body as IUser;
+        try {
+            const newUser = await userService.create({id, firstName, lastName, email, admin, password});
+            return res.status(201).json({user: newUser});
+        } catch (error) {
+            next(error);
+        }
     }
 };
