@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
-import IUser from '../../interfaces/user.interface';
+import { IUser } from '../../interfaces/user.interface';
 import userService from '../services/user.service';
 
 export default {
@@ -13,9 +13,9 @@ export default {
     },
 
     async create(req: Request, res: Response, next: NextFunction): Promise<Response<IUser> | void> {
-        const {id, firstName, lastName, email, admin, password } = req.body as IUser;
+        const { firstName, lastName, email, admin, password } = req.body as Omit<IUser, 'id'>;
         try {
-            const newUser = await userService.create({id, firstName, lastName, email, admin, password});
+            const newUser = await userService.create({firstName, lastName, email, admin, password});
             return res.status(201).json({ user: newUser });
         } catch (error) {
             next(error);
