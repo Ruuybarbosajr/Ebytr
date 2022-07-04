@@ -1,8 +1,10 @@
 interface ITask {
-  id?: number;
+  id?: string;
   title: string;
-  priority: number;
-  userId: number;
+  status: number;
+  userId: string;
+  content: string;
+  createdAt: Date;
 }
 
 export default ITask;

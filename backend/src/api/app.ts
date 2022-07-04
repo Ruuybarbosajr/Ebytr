@@ -10,6 +10,8 @@ app.use('/user', router.user);
 
 app.use('/login', router.login);
 
+app.use('/task', router.task);
+
 app.use(handleError);
 
 export default app;

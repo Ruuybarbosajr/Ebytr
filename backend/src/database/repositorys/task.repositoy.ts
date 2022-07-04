@@ -4,9 +4,17 @@ import taskModel from '../models/task.model';
 export default {
     async getAll(): Promise<ITask[] | void[]> { return taskModel.findAll(); },
 
-    async findById(id: string): Promise<ITask[] | void[]> { return taskModel.findByPk(id); },
+    async findByFk(userId: string): Promise<ITask[] | void[]> { return taskModel.findByFk(userId); },
 
-    async create(newTask: ITask): Promise<ITask> { await taskModel.create(newTask); return newTask; },
+    async findById(id: string): Promise<ITask[] | void[]> { return taskModel.findById(id); },
 
-    async update(task: ITask): Promise<ITask> { await taskModel.update(task); return task; }
+    async create(newTask: Omit<ITask, 'createdAt'>): Promise<string> { 
+        const id = await taskModel.create(newTask); 
+        return id;
+    },
+
+    async update(task: Omit<ITask, 'createdAt' | 'userId'>): Promise<Omit<ITask, 'createdAt' | 'userId'>> {
+        await taskModel.update(task); 
+        return task; 
+    }
 };
