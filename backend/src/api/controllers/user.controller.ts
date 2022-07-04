@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
-import IUser from '../../interfaces/user.interface';
+import { IUser } from '../../interfaces/user.interface';
 import userService from '../services/user.service';
 
 export default {

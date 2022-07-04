@@ -1,10 +1,13 @@
-interface IUser {
-  id?: string;
-  firstName: string;
-  lastName: string;
-  admin: boolean;
+interface IUserLogin {
   email: string;
   password: string;
 }
 
-export default IUser;
+interface IUser extends IUserLogin{
+  id?: string;
+  admin: boolean;
+  firstName: string,
+  lastName: string
+}
+
+export { IUser, IUserLogin };

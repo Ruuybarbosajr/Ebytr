@@ -1,5 +1,5 @@
 import userRepository from '../../database/repositorys/user.repository';
-import IUser from '../../interfaces/user.interface';
+import { IUser } from '../../interfaces/user.interface';
 import generateError from '../../utils/generate.error';
 
 export default {
