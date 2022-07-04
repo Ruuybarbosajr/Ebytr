@@ -1,0 +1,30 @@
+version: '3'
+
+services:
+  backend:
+    build: ./backend
+    container_name: 'ebytr_api'
+    ports:
+      - 3001:3001
+    volumes:
+      - ./backend:/app/backend
+    depends_on:
+      - db
+    tty: true
+
+  # frontend:
+  #   build: ./frontend
+  #   container_name: 'app_frontend'
+  #   platform: linux/amd64
+  #   ports:
+  #     - 3000:3000
+  #   command: npm start
+
+  db:
+    image: mysql:8.0.21
+    container_name: "ebytr_db"
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ROOT_PASSWORD=password_ebytr
+    restart: always
