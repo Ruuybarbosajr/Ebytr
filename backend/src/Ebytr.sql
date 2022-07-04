@@ -18,7 +18,7 @@ CREATE TABLE Tasks (
   `title` VARCHAR(30) NOT NULL,
   `priority` INT NOT NULL,
   `user_id` VARCHAR(30) NOT NULL,
-  FOREIGN KEY (`user_id`) REFERENCES users(`id`)
+  FOREIGN KEY (`user_id`) REFERENCES Users(`id`)
 ) ENGINE=INNODB;
 
 SET SQL_SAFE_UPDATES = 0;
