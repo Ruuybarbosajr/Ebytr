@@ -60,12 +60,12 @@ O arquivo `Ebytr.sql` contém as _queries_ que criam e populam o banco.
     - http://localhost:3001/user/create
   
     - Body
-    ```sql
+    `
       {
 	"email": "ruy.junior@mail.com",
 	"password": "senhapadrao"
       }
-    ```
+    `
 </details>
   
 <details>
