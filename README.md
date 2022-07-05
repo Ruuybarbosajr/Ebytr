@@ -78,7 +78,7 @@ O arquivo `Ebytr.sql` contém as _queries_ que criam e populam o banco.
 </details>
 
 <details>
-  <summary><strong>Login</summary><br />
+  <summary>Login</summary><br />
    
     > POST
     - http://localhost:3001/login
