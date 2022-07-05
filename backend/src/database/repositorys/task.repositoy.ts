@@ -8,13 +8,12 @@ export default {
 
     async findById(id: string): Promise<ITask[] | void[]> { return taskModel.findById(id); },
 
-    async create(newTask: Omit<ITask, 'createdAt'>): Promise<string> { 
-        const id = await taskModel.create(newTask); 
-        return id;
-    },
+    async create(newTask: Omit<ITask, 'createdAt'>): Promise<void> { await taskModel.create(newTask); },
 
     async update(task: Omit<ITask, 'createdAt' | 'userId'>): Promise<Omit<ITask, 'createdAt' | 'userId'>> {
-        await taskModel.update(task); 
-        return task; 
-    }
+        await taskModel.update(task);
+        return task;
+    },
+
+    async updateStatus(id: string, status: number): Promise<void> { await taskModel.uptadeStatus(id, status); }
 };
