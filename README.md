@@ -50,7 +50,7 @@ VALUES ('IDÚNICO', 'Ruy', 'Junior', true, 'ruy.junior@mail.com', 'senhapadrao')
 O arquivo `Ebytr.sql` contém as _queries_ que criam e populam o banco.
 
 <details>
-  <strong>Rotas Usuários</strong><br />
+  <summary><strong>Rotas Usuários</strong></summary><br />
     
     > GET
     - http://localhost:3001/user/all
