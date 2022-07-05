@@ -78,6 +78,9 @@ O arquivo `Ebytr.sql` contém as _queries_ que criam e populam o banco.
     - http://localhost:3001/task/update/:id
     - http://localhost:3001/task/update/status/:id
     
+    > DELETE
+    - http://localhost:3001/task/delete/:id
+    
 </details>
 
 <details>
