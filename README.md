@@ -50,5 +50,5 @@ VALUES ('IDÚNICO', 'Ruy', 'Junior', true, 'ruy.junior@mail.com', 'senhapadrao')
 O arquivo `Ebytr.sql` contém as _queries_ que criam e populam o banco.
 
 <details>
-  <summary><strong>Rotas User</strong></summary><br />
+  <strong>Rotas User</strong><br />
 <details>
