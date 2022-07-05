@@ -58,13 +58,15 @@ O arquivo `Ebytr.sql` contém as _queries_ que criam e populam o banco.
     
     > POST
     - http://localhost:3001/user/create
-  
+    
+    </br>
+    
     - Body
+    
     ```json
       {
-        "id": 1,
-        "name": "Poção de cura",
-        "amount": "20 gold",
+        "email": "ruy.junior@mail.com",
+	      "password": "senhapadrao"
       }
     ```
 </details>
