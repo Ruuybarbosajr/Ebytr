@@ -1,5 +1,11 @@
 # Boas vindas ao repositório do projeto Blitz Ebytr !!!
 
+> Tecnologias utilizadas:
+- Express
+- Typescript
+- JWT
+- Mysql
+
 > Rode os serviços `node` e `db` com o comando `docker-compose up -d`.
 - Lembre-se de parar o `mysql` se estiver usando localmente na porta padrão (`3306`).
 - Esses serviços irão inicializar um container chamado `ebytr_api` e outro chamado `ebytr_db`.
