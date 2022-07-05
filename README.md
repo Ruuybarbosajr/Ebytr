@@ -61,7 +61,7 @@ O arquivo `Ebytr.sql` contém as _queries_ que criam e populam o banco.
 </details>
   
 <details>
-  <strong>Rotas Tarefas</strong><br />
+  <summary><strong>Rotas Tarefas</strong></summary><br />
     
     > GET
     - http://localhost:3001/task/all
