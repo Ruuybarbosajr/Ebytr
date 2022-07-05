@@ -21,10 +21,13 @@ export default {
         };
     },
 
-    async create(newUser: Omit<IUser, 'id'>): Promise<Omit<IUser, 'password'>> {
+    async create(newUser: Omit<IUser, 'id'>, isAdm: boolean): Promise<Omit<IUser, 'password'>> {
+
+        if (!isAdm) generateError('unauthorized', 401);
+
         const [find] = await userRepository.findByEmail(newUser.email);
 
-        if (!find) generateError('User already exists', 400);
+        if (find) generateError('User already exists', 400);
         const user = await userRepository.create({ id: uuidv4(), ...newUser });
  
         const { id, firstName, admin, email, lastName } = user as Omit<IUser, 'password'>;

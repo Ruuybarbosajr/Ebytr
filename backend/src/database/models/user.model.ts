@@ -36,10 +36,9 @@ export default {
         return user as IUser[];
     },
 
-    async create({id, firstName, lastName, email, password, admin}: IUser): Promise<IUser[]> {
+    async create({id, firstName, lastName, email, password, admin}: IUser): Promise<void> {
         const query = `INSERT INTO Ebytr.Users (id, first_name, last_name, email, password, admin)
                        VALUES (?, ?, ?, ?, ?, ?)`;
-        const [newUser] = await connection.execute(query, [id, firstName, lastName, email, password, admin]);
-        return newUser as IUser[];
+        await connection.execute(query, [id, firstName, lastName, email, password, admin]);
     }
 };
