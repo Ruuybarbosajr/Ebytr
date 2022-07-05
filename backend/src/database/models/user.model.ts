@@ -4,10 +4,8 @@ import connection from './connection';
 export default {
     async findAll() {
         const query = `SELECT id, first_name AS firstName,
-        last_name AS lastName,
-        admin,
-        email
-        FROM Ebytr.Users`;
+        last_name AS lastName, admin,
+        email FROM Ebytr.Users`;
         const [users] = await connection.execute(query);
         return users as IUser[];
     },
@@ -16,9 +14,7 @@ export default {
         const query = `SELECT id,
         first_name AS firstName,
         last_name AS lastName,
-        admin,
-        email,
-        password
+        admin, email, password
         FROM Ebytr.Users WHERE id=?`;
         const [user] = await connection.execute(query, [id]);
         return user as IUser[];

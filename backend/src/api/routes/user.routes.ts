@@ -1,13 +1,14 @@
 import express from 'express';
 import userController from '../controllers/user.controller';
 import verifyToken from '../../middlewares/verify.token';
+import userValidate from '../../middlewares/user.validate';
 
 const router = express.Router();
 
-router.get('/all', userController.getAll);
+router.get('/all', verifyToken, userController.getAll);
 
-router.get('/:id', userController.findById);
+router.get('/:id', verifyToken, userController.findById);
 
-router.post('/create', verifyToken, userController.create);
+router.post('/create', verifyToken, userValidate, userController.create);
 
 export default router;

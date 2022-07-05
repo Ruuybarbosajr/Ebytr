@@ -5,9 +5,10 @@ import { IUser } from '../../interfaces/user.interface';
 import taskService from '../services/task.service';
 
 export default {
-    async getAll(_req: Request, res: Response, next: NextFunction): Promise<Response<ITask[]> | void> {
+    async getAll(req: RequestWithUser, res: Response, next: NextFunction): Promise<Response<ITask[]> | void> {
+        const { admin } = req.user as IUser;
         try {
-            const tasks = await taskService.getAll();
+            const tasks = await taskService.getAll(admin);
             return res.status(200).json({ tasks });
         } catch (error) {
             next(error);
@@ -36,10 +37,22 @@ export default {
     },
 
     async update(req: RequestWithUser, res: Response, next: NextFunction): Promise<Response<ITask> | void> {
-        const { id, title, userId, status, content, createdAt } = req.body as ITask;
+        const { title, userId, status, content, createdAt } = req.body as ITask;
+        const { id } = req.params;
         const { admin } = req.user as IUser;
         try {
             const task = await taskService.update({ id, title, userId, status, content, createdAt}, admin);
+            return res.status(200).json({ task });
+        } catch (error) {
+            next(error);
+        }
+    },
+
+    async updateStatus(req: RequestWithUser, res: Response, next: NextFunction): Promise<Response<ITask> | void> {
+        const task = req.body as ITask;
+        const { id, admin } = req.user as IUser;
+        try {
+            await taskService.updateStatus({ id: req.params.id, ...task }, id as string, admin);
             return res.status(200).json({ task });
         } catch (error) {
             next(error);
