@@ -75,3 +75,11 @@ O arquivo `Ebytr.sql` contém as _queries_ que criam e populam o banco.
     - http://localhost:3001/task/update/status/:id
     
 </details>
+
+<details>
+  <summary><strong>Login</summary><br />
+   
+    > POST
+    - http://localhost:3001/login
+    
+</details>
