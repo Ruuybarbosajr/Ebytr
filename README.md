@@ -48,3 +48,7 @@ INSERT INTO Users (`id`, `first_name`, `last_name`, `admin`, `email`, `password`
 VALUES ('IDÚNICO', 'Ruy', 'Junior', true, 'ruy.junior@mail.com', 'senhapadrao');
 ```
 O arquivo `Ebytr.sql` contém as _queries_ que criam e populam o banco.
+
+<details>
+  <summary><strong>Rotas User</strong></summary><br />
+<details>
