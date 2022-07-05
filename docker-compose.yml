@@ -1,30 +1,36 @@
-version: '3'
+version: "3"
 
 services:
   backend:
-    build: ./backend
-    container_name: 'ebytr_api'
+    image: node:16
+    container_name: ebytr_api
+    tty: true
+    stdin_open: true
+    command: bash
+    restart: always
     ports:
       - 3001:3001
+    working_dir: /app/backend
     volumes:
       - ./backend:/app/backend
     depends_on:
       - db
-    tty: true
-
-  # frontend:
-  #   build: ./frontend
-  #   container_name: 'app_frontend'
-  #   platform: linux/amd64
-  #   ports:
-  #     - 3000:3000
-  #   command: npm start
-
+    environment:
+      - PORT=3001
+      - DATABASE_HOST=ebytr_db
+      - DATABASE_USER=root
+      - DATABASE_PASSWORD=password_ebytr
+      - DATABASE_NAME=Ebytr
+      - JWT_SECRET=senhasupersecretahihi
   db:
     image: mysql:8.0.21
-    container_name: "ebytr_db"
+    container_name: ebytr_db
     ports:
       - 3306:3306
     environment:
       - MYSQL_ROOT_PASSWORD=password_ebytr
     restart: always
+
+networks:
+  default:
+    name: ebytr_net
