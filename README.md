@@ -8,4 +8,4 @@
 > Use o comando `npm run up:server`.
 - Ele te dará acesso ao terminal interativo do container criado pelo compose, que está rodando em segundo plano.
 
-> Instale as dependências [**Caso existam**] com `npm install`
+> Instale as dependências com `npm install`
