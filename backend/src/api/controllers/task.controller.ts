@@ -1,4 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
+import taskRepositoy from '../../database/repositorys/task.repositoy';
 import RequestWithUser from '../../interfaces/request.interface';
 import ITask from '../../interfaces/task.interface';
 import { IUser } from '../../interfaces/user.interface';
@@ -54,6 +55,16 @@ export default {
         try {
             await taskService.updateStatus({ id: req.params.id, ...task }, id as string, admin);
             return res.status(200).json({ task });
+        } catch (error) {
+            next(error);
+        }
+    },
+
+    async delete(req: RequestWithUser, res: Response, next: NextFunction): Promise<Response<void> | void> {
+        const { id } = req.params;
+        try {
+            await taskService.delete(id, req.user as IUser);
+            return res.status(204).json({ id });
         } catch (error) {
             next(error);
         }

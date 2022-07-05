@@ -15,5 +15,7 @@ export default {
         return task;
     },
 
-    async updateStatus(id: string, status: number): Promise<void> { await taskModel.uptadeStatus(id, status); }
+    async updateStatus(id: string, status: number): Promise<void> { await taskModel.uptadeStatus(id, status); },
+
+    async delete(id: string): Promise<void> { await taskModel.delete(id); }
 };

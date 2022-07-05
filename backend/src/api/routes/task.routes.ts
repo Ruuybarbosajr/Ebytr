@@ -15,4 +15,6 @@ router.put('/update/status/:id', verifyToken,  taskValidate, taskController.upda
 
 router.post('/create', verifyToken,  taskValidate, taskController.create);
 
+router.delete('/delete/:id', verifyToken, taskController.delete);
+
 export default router;

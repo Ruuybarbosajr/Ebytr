@@ -49,5 +49,10 @@ export default {
     async uptadeStatus(id: string, status: number): Promise<void> {
         const query = 'UPDATE Ebytr.Tasks SET status=? WHERE id=?';
         await connection.execute(query, [status, id]);
+    },
+
+    async delete(id: string): Promise<void> {
+        const query = 'DELETE FROM Ebytr.Tasks WHERE id=?';
+        await connection.execute(query, [id]);
     }
 };

@@ -3,6 +3,7 @@ import userRepository from '../../database/repositorys/user.repository';
 import ITask from '../../interfaces/task.interface';
 import generateError from '../../utils/generate.error';
 import { v4 as uuidv4 } from 'uuid';
+import { IUser } from '../../interfaces/user.interface';
 
 export default {
     async getAll(isAdmin: boolean): Promise<ITask[] | void[]> {
@@ -56,5 +57,15 @@ export default {
         if(find.userId !== userId && !isAdmin) generateError('unauthorized', 401);
 
         await taskRepositoy.updateStatus(task.id as string, task.status);
+    },
+
+    async delete(taskId: string, user: IUser): Promise<void> {
+
+        const [find] = await taskRepositoy.findById(taskId) as ITask[];
+        if (!find) generateError('Task not found', 404);
+
+        if (user.id !== find.userId && !user.admin) generateError('unauthorized', 401);
+
+        await taskRepositoy.delete(taskId as string);
     }
 };
