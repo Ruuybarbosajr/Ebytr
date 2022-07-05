@@ -50,7 +50,7 @@ VALUES ('IDÚNICO', 'Ruy', 'Junior', true, 'ruy.junior@mail.com', 'senhapadrao')
 O arquivo `Ebytr.sql` contém as _queries_ que criam e populam o banco.
 
 <details close>
-  <summary><strong>Rotas Usuários</strong></summary><br />
+  <summary>Rotas Usuários</summary><br />
     
     > GET
     - http://localhost:3001/user/all
@@ -60,6 +60,7 @@ O arquivo `Ebytr.sql` contém as _queries_ que criam e populam o banco.
     - http://localhost:3001/user/create
     
     <br>
+	
     ```json
       {
         "email": "ruy.junior@mail.com",
@@ -69,7 +70,7 @@ O arquivo `Ebytr.sql` contém as _queries_ que criam e populam o banco.
 </details>
   
 <details>
-  <summary><strong>Rotas Tarefas</strong></summary><br />
+  <summary>Rotas Tarefas</summary><br />
     
     > GET
     - http://localhost:3001/task/all
