@@ -58,7 +58,7 @@ O arquivo `Ebytr.sql` contém as _queries_ que criam e populam o banco.
     
     > POST
     - http://localhost:3001/user/create
-<details>
+</details>
   
 <details>
   <summary><strong>Rotas Tarefas</strong><summary><br />
@@ -74,4 +74,4 @@ O arquivo `Ebytr.sql` contém as _queries_ que criam e populam o banco.
     - http://localhost:3001/task/update/:id
     - http://localhost:3001/task/update/status/:id
     
-<details>
+</details>
